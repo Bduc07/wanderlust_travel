@@ -1,0 +1,175 @@
+=====================================================================
+                WANDERLUST TRAVEL WEBSITE
+                      USER GUIDE
+=====================================================================
+
+CONTENTS
+--------
+1. Introduction
+2. User Features
+3. Admin Features
+4. Technical Details
+5. Default Login Credentials
+
+=====================================================================
+1. INTRODUCTION
+=====================================================================
+
+Wanderlust is a full-featured travel booking platform that allows users 
+to browse and book travel packages to destinations around the world. 
+The system includes both user-facing features and an administrative 
+backend for managing travel packages, bookings, and users.
+
+=====================================================================
+2. USER FEATURES
+=====================================================================
+
+HOMEPAGE
+--------
+The homepage provides an overview of what the platform offers:
+- Featured travel packages with images and descriptions
+- Popular destinations section showing top travel locations
+- Special offers with discounted prices
+- Testimonials from previous travelers
+- Newsletter subscription option
+
+PACKAGE BROWSING
+---------------
+Browse all available travel packages with filtering options:
+- Filter by region (Asia, Europe, Africa, North America, etc.)
+- Filter by price range using the price slider
+- Filter by trip duration (number of days)
+- Filter by activities and interests
+- Sort by popularity, price, or rating
+
+PACKAGE DETAILS
+--------------
+Each package has a detailed page showing:
+- Full package description
+- Day-by-day itinerary
+- Pricing information
+- What's included and excluded in the package
+- Package highlights
+- Image gallery
+- Reviews and ratings from previous travelers
+- Booking form to secure your spot
+
+USER REGISTRATION & LOGIN
+-----------------------
+- Create a new account with email and password
+- Log in to access user-specific features
+- Profile management options
+
+BOOKING PROCESS
+-------------
+1. Select a travel package of interest
+2. Choose travel dates and number of travelers
+3. Fill in contact and traveler information
+4. Add any special requests or requirements
+5. Review booking summary with total price calculation
+6. Complete booking and receive confirmation
+
+USER DASHBOARD
+------------
+Once logged in, users can access their dashboard to:
+- View all their bookings (past and upcoming)
+- See detailed booking information
+- Cancel bookings if needed (before the cancellation deadline)
+- Update profile information and preferences
+
+NEWSLETTER
+---------
+Subscribe to the newsletter to receive:
+- Updates about new travel packages
+- Special promotions and discounts
+- Travel tips and destination guides
+
+=====================================================================
+3. ADMIN FEATURES
+=====================================================================
+
+ADMIN DASHBOARD
+-------------
+Administrators have access to a comprehensive dashboard showing:
+- Overview statistics of total bookings and revenue
+- Recent user registrations
+- Recent bookings across the platform
+- Quick access to management functions
+
+PACKAGE MANAGEMENT
+----------------
+Admins can manage the travel package catalog:
+- View all packages with sorting and filtering options
+- Add new travel packages with detailed information
+- Edit existing package details, pricing, and images
+- Remove packages from the catalog when needed
+
+BOOKING MANAGEMENT
+---------------
+The booking management system allows admins to:
+- View all bookings with advanced search and filtering
+- See detailed booking information
+- Process new booking requests
+- Cancel bookings if necessary
+- Contact customers regarding their bookings
+
+USER MANAGEMENT
+------------
+Administrators can manage user accounts:
+- View all registered users on the platform
+- See user details and booking history
+- Change user roles (promote to admin or demote)
+- Disable problematic user accounts if necessary
+
+=====================================================================
+4. TECHNICAL DETAILS
+=====================================================================
+
+FRONTEND
+-------
+- Built with React.js for a responsive user interface
+- Uses Tailwind CSS for modern, mobile-friendly styling
+- Client-side form validation for better user experience
+- Real-time updates for booking status changes
+
+BACKEND
+------
+- Express.js server handles all API requests
+- RESTful API architecture
+- JWT authentication for secure access to protected features
+- Role-based access control for admin functionality
+
+DATABASE
+-------
+- MySQL database stores all website data
+- Tables for users, packages, bookings, destinations, etc.
+- Optimized for fast data retrieval and management
+
+SECURITY
+-------
+- Password hashing for secure user authentication
+- Protected API endpoints requiring proper authentication
+- Input validation on all forms
+- CSRF protection measures
+
+=====================================================================
+5. DEFAULT LOGIN CREDENTIALS
+=====================================================================
+
+For testing and demonstration purposes, the system comes with 
+pre-configured accounts:
+
+ADMIN USER:
+- Email: admin@wanderlust.com
+- Password: admin123
+
+REGULAR USER:
+- Email: john@example.com
+- Password: admin123
+
+NOTE: For security reasons, change these passwords immediately in a 
+production environment.
+
+=====================================================================
+                          END OF GUIDE
+=====================================================================

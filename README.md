@@ -20,24 +20,58 @@ npm install
 ```
 
 ### Step 3: Set Up MySQL Database
+
+#### Installing MySQL
+If MySQL is not already installed:
 ```bash
-# Install MySQL if not already installed
 sudo apt update
 sudo apt install mysql-server
+```
 
-# Start MySQL service
+Start and enable MySQL service:
+```bash
 sudo systemctl start mysql
 sudo systemctl enable mysql
+```
 
-# Access MySQL
-sudo mysql
+Secure your MySQL installation:
+```bash
+sudo mysql_secure_installation
+```
+Follow the prompts to set a root password and secure your MySQL installation.
 
-# Create database and user
+#### Creating the Database and User
+Access MySQL as root:
+```bash
+sudo mysql -u root -p
+```
+Enter your password when prompted.
+
+Create the database and user:
+```sql
 CREATE DATABASE wanderlust_db;
 CREATE USER 'wanderlust_user'@'localhost' IDENTIFIED BY 'your_password';
 GRANT ALL PRIVILEGES ON wanderlust_db.* TO 'wanderlust_user'@'localhost';
 FLUSH PRIVILEGES;
 EXIT;
+```
+
+#### Importing Database Structure
+You can use the provided script to automatically set up the database:
+```bash
+# Set environment variables for your database configuration
+export DB_HOST=localhost
+export DB_USER=wanderlust_user
+export DB_PASSWORD=your_password
+export DB_NAME=wanderlust_db
+
+# Run the database setup script
+node database-setup.js
+```
+
+Alternatively, you can manually import the SQL script:
+```bash
+mysql -u wanderlust_user -p wanderlust_db < init-database.sql
 ```
 
 ### Step 4: Configure Environment Variables
@@ -54,17 +88,11 @@ DB_USER=wanderlust_user
 DB_PASSWORD=your_password
 DB_NAME=wanderlust_db
 
-# JWT Secret
+# JWT Secret (used for authentication)
 JWT_SECRET=your_jwt_secret_key
 ```
 
-### Step 5: Initialize Database Tables
-```bash
-# Run the database migration
-npm run migrate
-```
-
-### Step 6: Start the Application
+### Step 5: Start the Application
 ```bash
 # For development
 npm run dev
@@ -73,6 +101,22 @@ npm run dev
 npm run build
 npm start
 ```
+
+### Step 6: Access the Application
+Open your browser and navigate to:
+```
+http://localhost:5000
+```
+
+You can log in with the following pre-configured accounts:
+
+**Admin User:**
+- Email: admin@wanderlust.com
+- Password: admin123
+
+**Regular User:**
+- Email: john@example.com
+- Password: admin123
 
 ## Database Schema
 

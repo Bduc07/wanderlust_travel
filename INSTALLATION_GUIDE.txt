@@ -1,0 +1,175 @@
+=====================================================================
+                WANDERLUST TRAVEL WEBSITE
+             INSTALLATION GUIDE FOR UBUNTU
+=====================================================================
+
+CONTENTS
+--------
+1. Prerequisites
+2. Installation Steps
+3. MySQL Database Setup
+4. Configuration
+5. Running the Application
+6. Default Login Credentials
+7. Troubleshooting
+
+=====================================================================
+1. PREREQUISITES
+=====================================================================
+
+Before installing the Wanderlust Travel Website, ensure you have:
+
+- Node.js version 16 or higher
+- npm (Node Package Manager)
+- MySQL Server version 8.0 or higher
+
+To install these prerequisites:
+
+```
+# Update package lists
+sudo apt update
+
+# Install Node.js and npm
+sudo apt install nodejs npm
+
+# Install MySQL
+sudo apt install mysql-server
+```
+
+=====================================================================
+2. INSTALLATION STEPS
+=====================================================================
+
+1. Clone the repository:
+   ```
+   git clone https://github.com/yourusername/wanderlust-travel.git
+   cd wanderlust-travel
+   ```
+
+2. Install required dependencies:
+   ```
+   npm install
+   ```
+
+=====================================================================
+3. MYSQL DATABASE SETUP
+=====================================================================
+
+1. Start and secure the MySQL service:
+   ```
+   sudo systemctl start mysql
+   sudo systemctl enable mysql
+   sudo mysql_secure_installation
+   ```
+   Follow the prompts to set a root password and secure your installation.
+
+2. Create a database and user:
+   ```
+   sudo mysql -u root -p
+   ```
+   
+   Enter your MySQL root password when prompted, then execute:
+   ```
+   CREATE DATABASE wanderlust_db;
+   CREATE USER 'wanderlust_user'@'localhost' IDENTIFIED BY 'your_password';
+   GRANT ALL PRIVILEGES ON wanderlust_db.* TO 'wanderlust_user'@'localhost';
+   FLUSH PRIVILEGES;
+   EXIT;
+   ```
+
+3. Import the database schema:
+   ```
+   mysql -u wanderlust_user -p wanderlust_db < init-database.sql
+   ```
+   Enter the password you created for 'wanderlust_user'.
+
+   Alternatively, you can use the provided database setup script:
+   ```
+   export DB_HOST=localhost
+   export DB_USER=wanderlust_user
+   export DB_PASSWORD=your_password
+   export DB_NAME=wanderlust_db
+   node database-setup.js
+   ```
+
+=====================================================================
+4. CONFIGURATION
+=====================================================================
+
+Create a .env file in the root directory:
+```
+# Server Configuration
+NODE_ENV=development
+PORT=5000
+
+# Database Configuration
+DB_HOST=localhost
+DB_USER=wanderlust_user
+DB_PASSWORD=your_password
+DB_NAME=wanderlust_db
+
+# JWT Secret (used for authentication)
+JWT_SECRET=your_jwt_secret_key
+```
+
+Replace 'your_password' with the password you created for the 'wanderlust_user'.
+Choose a strong, random string for 'your_jwt_secret_key'.
+
+=====================================================================
+5. RUNNING THE APPLICATION
+=====================================================================
+
+For development:
+```
+npm run dev
+```
+
+For production:
+```
+npm run build
+npm start
+```
+
+The application will be available at: http://localhost:5000
+
+=====================================================================
+6. DEFAULT LOGIN CREDENTIALS
+=====================================================================
+
+Admin User:
+- Email: admin@wanderlust.com
+- Password: admin123
+
+Regular User:
+- Email: john@example.com
+- Password: admin123
+
+NOTE: These are default credentials for testing. In a production 
+environment, you should change these passwords immediately.
+
+=====================================================================
+7. TROUBLESHOOTING
+=====================================================================
+
+Common Issues:
+
+1. Database Connection Failed
+   - Check if MySQL service is running: sudo systemctl status mysql
+   - Verify database credentials in .env file
+   - Ensure the wanderlust_db database exists
+
+2. Application Won't Start
+   - Check if port 5000 is already in use
+   - Verify Node.js version (should be 16+)
+   - Check logs for specific error messages
+
+3. Login Issues
+   - Verify the init-database.sql was imported correctly
+   - Check if JWT_SECRET is set in .env file
+
+For additional help, refer to HOW_IT_WORKS.md for detailed information
+about application features and functionality.
+
+=====================================================================
+                          END OF GUIDE
+=====================================================================
