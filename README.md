@@ -50,7 +50,7 @@ Enter your password when prompted.
 Create the database and user:
 ```sql
 CREATE DATABASE wanderlust_db;
-CREATE USER 'wanderlust_user'@'localhost' IDENTIFIED BY 'your_password';
+CREATE USER 'wanderlust_user'@'localhost' IDENTIFIED BY 'test123';
 GRANT ALL PRIVILEGES ON wanderlust_db.* TO 'wanderlust_user'@'localhost';
 FLUSH PRIVILEGES;
 EXIT;
@@ -62,7 +62,7 @@ You can use the provided script to automatically set up the database:
 # Set environment variables for your database configuration
 export DB_HOST=localhost
 export DB_USER=wanderlust_user
-export DB_PASSWORD=your_password
+export DB_PASSWORD=test123
 export DB_NAME=wanderlust_db
 
 # Run the database setup script
@@ -85,11 +85,11 @@ PORT=5000
 # Database Configuration
 DB_HOST=localhost
 DB_USER=wanderlust_user
-DB_PASSWORD=your_password
+DB_PASSWORD=test123
 DB_NAME=wanderlust_db
 
 # JWT Secret (used for authentication)
-JWT_SECRET=your_jwt_secret_key
+JWT_SECRET=test123
 ```
 
 ### Step 5: Start the Application
