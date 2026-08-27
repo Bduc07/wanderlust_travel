@@ -13,7 +13,7 @@ import AdminPackages from "@/pages/AdminPackages";
 import AdminBookings from "@/pages/AdminBookings";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import { useAuth } from "./context/AuthContext";
+import { useAuth } from "@/context/AuthContext";
 
 function Router() {
   const { user } = useAuth();
